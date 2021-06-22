@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {View, Text, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default props=>{
     const [carregando, setCarregando] = useState(true)
@@ -28,7 +29,7 @@ export default props=>{
                     style={{width:'15%', alignItems:'center', justifyContent:'center', marginRight:15}}
                     onPress={()=>props.navigation.goBack()}
                 >
-                    <Text style={{color:'#fff'}}>Voltar</Text>
+                    <Icon name="arrow-back-outline" size={30} color='#fff'/>
                 </TouchableOpacity>
                 <View style={{width:'80%', justifyContent:'center', paddingLeft:25}}>
                     <Text style={{color:'#fff', fontSize:22}}>{props.usuario.public_repos} Repositórios</Text>

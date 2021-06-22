@@ -1,5 +1,6 @@
 import React from 'react'
 import {View, Text, Image, TouchableOpacity, Dimensions} from 'react-native'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 export default props=>{
     
@@ -70,11 +71,13 @@ export default props=>{
                 onPress={()=>{props.navigation.goBack()}}
                 style={{
                     position:'absolute',
-                    right: 30,
-                    top: 15
+                    right: 15,
+                    top: 15, 
+                    flexDirection:'row'
                 }}
             >
-                <Text style={{color:'#fff'}}>Sair</Text>
+                <Text style={{color:'#fff', marginRight:10}}> Sair</Text>
+                <Icon name="exit-outline" size={20} color='#ff0000'/>
             </TouchableOpacity>
         </View>
     )
