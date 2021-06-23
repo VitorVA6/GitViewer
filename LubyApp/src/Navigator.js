@@ -45,14 +45,14 @@ export default props =>{
             <Stack.Screen name="FollowerScreen">
             {
                 props=>(
-                    <FollowerScreen {...props} usuario={user}/>
+                    <FollowerScreen {...props} usuario={user} funcao={updateUser}/>
                 )
             }
             </Stack.Screen>
             <Stack.Screen name="FollowingScreen">
             {
                 props=>(
-                    <FollowingScreen {...props} usuario={user}/>
+                    <FollowingScreen {...props} usuario={user} funcao={updateUser}/>
                 )
             }
             </Stack.Screen>

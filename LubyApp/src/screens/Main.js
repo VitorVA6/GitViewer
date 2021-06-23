@@ -6,9 +6,9 @@ export default props=>{
     
     
     return(
-        <View style={{flex:1, backgroundColor:'#1c1c1c'}}>
+        <View style={{flex:1, backgroundColor:'#1c1c1c', paddingTop:20}}>
             
-            <View style={{padding:20}}>
+            <View>
                 <View style={{justifyContent:'center', alignItems:'center'}}>
                     <Image 
                         source={{uri: props.usuario.avatar_url}}
@@ -24,9 +24,19 @@ export default props=>{
                     />
                 </View>
                 <View style = {{marginTop:10, marginBottom:10}}>
-                    <Text style = {{fontSize:22, color:'#fff', fontWeight:'bold'}}>{props.usuario.name}</Text>
-                    <Text style={{color:'#fff'}}>{props.usuario.login}</Text> 
-                    <Text style={{color:'#fff'}}>{props.usuario.location}</Text> 
+                    <View style={{flexDirection:'row'}}>
+                        <View style={{width:8, 
+                            backgroundColor:'#ffd700', 
+                            marginRight:10, 
+                            borderTopRightRadius:4,
+                            borderBottomRightRadius:4}}
+                        />
+                        <Text style = {{fontSize:22, color:'#fff', fontWeight:'bold'}}>{props.usuario.name}</Text>
+                    </View>
+                    <View style={{marginLeft:20}}>
+                        <Text style={{color:'#fff'}}>{props.usuario.login}</Text> 
+                        <Text style={{color:'#fff'}}>{props.usuario.location}</Text> 
+                    </View>
                 </View>
             </View>  
             <View style={{
@@ -34,8 +44,8 @@ export default props=>{
                 width:'100%', 
                 backgroundColor:'#363636', 
                 height:'18%', 
-                marginTop:10, 
-                marginBottom:10}}>   
+                marginTop:25, 
+                marginBottom:35}}>   
                 
                 <TouchableOpacity 
                     style = {{width:'33%', justifyContent:'center', alignItems:'center'}}
@@ -63,9 +73,17 @@ export default props=>{
                 </TouchableOpacity>
                 
             </View>
-            <View style ={{padding:20}}>
-                <Text style = {{fontSize:22, fontWeight:'bold', color:'#fff'}}>BIO</Text>
-                <Text style={{color:'#fff'}}>{props.usuario.bio}</Text>
+            <View>
+                <View style={{flexDirection:'row', marginBottom:8}}>
+                    <View style={{width:8, 
+                        backgroundColor:'#ffd700', 
+                        marginRight:10, 
+                        borderTopRightRadius:4,
+                        borderBottomRightRadius:4}}
+                    />
+                    <Text style = {{fontSize:22, fontWeight:'bold', color:'#fff'}}>BIO</Text>
+                </View>
+                <Text style={{color:'#fff', marginLeft:19}}>{props.usuario.bio}</Text>
             </View>
             <TouchableOpacity
                 onPress={()=>{props.navigation.goBack()}}
@@ -79,6 +97,7 @@ export default props=>{
                 <Text style={{color:'#fff', marginRight:10}}> Sair</Text>
                 <Icon name="exit-outline" size={20} color='#ff0000'/>
             </TouchableOpacity>
+            
         </View>
     )
 }

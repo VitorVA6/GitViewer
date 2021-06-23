@@ -4,6 +4,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 export default props=>{
     const [carregando, setCarregando] = useState(true)
+    const [carregando2, setCarregando2] = useState(true)
+    const [current, setCurrent] = useState([])
     const [dados, setDados] = useState([])
 
     useEffect(
@@ -14,6 +16,15 @@ export default props=>{
                 .catch(()=>(alert('Erro ao carregar dados do github')))
                 .finally(()=>setCarregando(false))
         }, [])
+
+    getDataFromApi = async (nome)=>{
+        await fetch(`http://api.github.com/users/${nome}`)
+            .then((resp)=>resp.json())
+            .then((json)=>setCurrent(json))
+            .catch(()=>(console.warn('Erro ao carregar dados do github')))
+            .finally(()=>{
+                setCarregando2(false)              
+            })}       
     
     return(
         <View style={{flex:1, backgroundColor:'#1c1c1c'}}>
@@ -56,10 +67,27 @@ export default props=>{
                             borderWidth:2,
                             borderColor:'#fff',
                             marginRight:30
-                        }}                    
+                        }}                                           
                         />
                         <Text style={{fontSize:18, fontWeight:'bold', color: '#fff'}}>{item.login}</Text>
-                        
+                        <TouchableOpacity
+                            onPress={()=>{
+                                getDataFromApi(item.login)
+                                if(carregando2===false){
+                                    props.funcao(current)
+                                    props.navigation.navigate('MainScreen')
+                                }
+                            }} 
+                            style={{ 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                width:60,
+                                height:60
+                            }}
+                            
+                            >
+                            <Icon name="arrow-forward-outline" size={25} color='#fff'/>
+                        </TouchableOpacity>
                     </View>
                     
                 )}
