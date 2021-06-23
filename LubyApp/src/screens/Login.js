@@ -7,7 +7,8 @@ export default class Login extends Component {
     state = {
         nome: '',
         dados: [],
-        carregando: true 
+        carregando: true,
+        invalido: false
     }
     
     getDataFromApi = async ()=>{
@@ -18,9 +19,11 @@ export default class Login extends Component {
             .finally(()=>{
                 this.setState({carregando: false})
                 if(this.state.dados.login == undefined){
-                    console.warn("Usuário não encontrado")
+                    this.setState({invalido:true})
                 }else{                    
                     this.props.funcao(this.state.dados)
+                    this.setState({invalido:false})
+                    this.setState({nome:''})
                     this.props.navigation.navigate(this.props.nextScreen)
                 }
             })       
@@ -64,6 +67,10 @@ export default class Login extends Component {
                     <Text style={{fontSize:20, marginRight:5}}>ENTRAR</Text>
                     <Icon name="arrow-forward-outline" size={30} color='black'/>
                 </TouchableOpacity>
+                {
+                this.state.invalido?<Text style={{color:'#ff0000', margin:15}}>Usuário inválido</Text>:
+                false
+                }
             </View>
         )}
 }

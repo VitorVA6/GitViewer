@@ -41,13 +41,28 @@ export default props=>{
                 keyExtractor={({id}, index)=>id}
                 renderItem={({item})=>(                    
                     <View 
-                        style = {{padding:20, 
+                        style = {{ 
                             backgroundColor:'#1c1c1c', 
                             borderBottomWidth: 1, 
                             borderBottomColor:'#363636', 
-                            paddingBottom:30}}>
-                        <Text style={{fontSize:18, fontWeight:'bold', color: '#fff'}}>{item.name}</Text>
-                        <Text style={{color: '#fff'}}>{item.description}</Text>
+                            paddingBottom:30,
+                            paddingTop:30}}>
+                        <View style={{flexDirection:'row', alignItems:'center'}}>
+                            <View style={{width:8, 
+                                backgroundColor:'#ffd700', 
+                                marginRight:10, 
+                                borderTopRightRadius:4,
+                                borderBottomRightRadius:4,
+                                height:30
+                                }}
+                            />
+                            <Text style={{fontSize:18, fontWeight:'bold', color: '#fff'}}>{item.name}</Text>
+                        </View>
+                        <Text style={{color: '#fff', marginLeft:20}}>{item.description}</Text>
+                        <View style={{flexDirection:'row', marginLeft:20, marginTop:10, alignItems:'center'}}>
+                            <Icon name="star-outline" size={15} color='#ffd700'/>
+                            <Text style={{color: '#fff', marginLeft:5}}>{item.stargazers_count}</Text>
+                        </View>
                     </View>
                     
                 )}

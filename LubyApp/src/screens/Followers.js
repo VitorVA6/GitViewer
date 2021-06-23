@@ -57,7 +57,9 @@ export default props=>{
                             borderBottomWidth: 1, 
                             borderBottomColor:'#363636',
                             flexDirection:'row',
-                            alignItems:'center'}}>
+                            alignItems:'center',
+                            justifyContent:'space-between'
+                            }}>
                         <Image 
                             source={{uri: item.avatar_url}}
                             style = {{
