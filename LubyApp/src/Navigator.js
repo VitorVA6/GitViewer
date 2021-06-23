@@ -6,10 +6,13 @@ import RepoScreen from './screens/Repos'
 import FollowerScreen from './screens/Followers'
 import FollowingScreen from './screens/Following'
 
+//Navegador da aplicação, utilizado pra transitar entre as telas
+
 const Stack = createStackNavigator()  
 
 
 export default props =>{
+//State responsável por controlar qual usuário é o principal no momento
     const [user, setUser] = useState([])
     const updateUser = (arr)=>{
         setUser(arr)

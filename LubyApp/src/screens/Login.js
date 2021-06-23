@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { View, TextInput, Text, TouchableOpacity, Image} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+//Tela de login
 export default class Login extends Component {
 
     state = {
@@ -10,7 +11,8 @@ export default class Login extends Component {
         carregando: true,
         invalido: false
     }
-    
+
+//Função de autenticação do usuário
     getDataFromApi = async ()=>{
         await fetch(`http://api.github.com/users/${this.state.nome}`)
             .then((resp)=>resp.json())
@@ -29,6 +31,7 @@ export default class Login extends Component {
             })       
         
     }
+//Jsx da tela
     render(){
         return(
             <View style = {{flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#1c1c1c'}}>

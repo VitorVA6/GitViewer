@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react'
 import {View, Text, FlatList, ActivityIndicator, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+//Tela de repositórios
 export default props=>{
     const [carregando, setCarregando] = useState(true)
     const [dados, setDados] = useState([])
 
+//Função de captura de dados na API
     useEffect(
         ()=>{
             fetch(`http://api.github.com/users/${props.usuario.login}/repos`)
@@ -15,6 +17,7 @@ export default props=>{
                 .finally(()=>setCarregando(false))
         }, [])
     
+//Jsx da tela
     return(
         <View style={{flex:1, backgroundColor:'#1c1c1c'}}>
             <View 

@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react'
 import {View, Text, FlatList, ActivityIndicator, TouchableOpacity, Image} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
+//Tela da aba "Seguindo"
 export default props=>{
     const [carregando, setCarregando] = useState(true)
     const [carregando2, setCarregando2] = useState(true)
     const [dados, setDados] = useState([])
     const [current, setCurrent] = useState([])
 
+//Funções assíncronas de captura de dados na API
     useEffect(
         ()=>{
             fetch(`http://api.github.com/users/${props.usuario.login}/following`)
@@ -26,6 +28,7 @@ export default props=>{
                 setCarregando2(false)              
             })}       
 
+//Jsx da tela
     return(
         <View style={{flex:1, backgroundColor:'#1c1c1c'}}>
             <View 

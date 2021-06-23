@@ -2,9 +2,10 @@ import React from 'react'
 import {View, Text, Image, TouchableOpacity, Dimensions} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
-export default props=>{
-    
-    
+//Tela inicial do usuário, exibida após ser autenticado
+export default props=>{    
+
+//Jsx da tela
     return(
         <View style={{flex:1, backgroundColor:'#1c1c1c', paddingTop:20}}>
             
